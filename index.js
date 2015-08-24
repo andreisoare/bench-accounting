@@ -5,6 +5,10 @@ var operations = require('./operations');
 var parser = require('./parser');
 
 crawl(function(err, transactions) {
+  if (err) {
+    return console.error('Error fetching all transactions!\n' + err);
+  }
+
   console.log('Got', transactions.length, 'transactions.', '\n');
 
   var transactions = parser.removeDuplicates(transactions);

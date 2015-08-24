@@ -21,8 +21,7 @@ module.exports = function(next) {
       console.log('GET', url);
       request(url, function(err, response, body) {
         if (err) {
-          console.error(error);
-          return cbk(error);
+          return cbk(err);
         }
 
         var json = JSON.parse(body);
